@@ -4,8 +4,8 @@
   "description": "Sunteck One World Naigaon Luxury 1 & 2 BHK Residences Website",
   "main": "index.html",
   "scripts": {
-    "start": "serve .",
-    "build": "echo 'Static build ready'"
+    "start": "node server.js",
+    "build": "echo 'Static site ready'"
   },
   "dependencies": {
     "serve": "^14.2.1"
