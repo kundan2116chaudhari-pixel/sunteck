@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (popupBackdrop) popupBackdrop.addEventListener('click', closeEnquiryModal);
 
   // Trigger Pop-up Modal on Brochure / Pricing / Enquiry CTA Buttons (Excluding submit buttons)
-  document.querySelectorAll('a[href*="brochure"], .download-brochure-btn, a[href="#sunteck-enquiry"], a.btn-full, .utility-enquire, .open-enquiry-modal').forEach(btn => {
+  document.querySelectorAll('a[href*="brochure"], .download-brochure-btn, a[href="#enquire"], a.btn-full, .utility-enquire, .open-enquiry-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       if (btn.closest('.video-card-169') || btn.classList.contains('btn-video-modal-trigger') || btn.tagName === 'BUTTON' || btn.getAttribute('type') === 'submit') return;
       e.preventDefault();
@@ -641,10 +641,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Handle Form Submission (Web3Forms API + Instant PDF Download + Luxury Thank You View)
+  // Handle Form Submission (Web3Forms API + Instant PDF Download + Redirection to thank-you.html)
   function handleFormSubmit(form, statusEl) {
-    const originalFormHTML = form.innerHTML;
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -660,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const leadName = (formData.get('name') || '').trim();
       const leadPhone = (formData.get('phone') || '').trim();
       const leadEmail = (formData.get('email') || '').trim();
-      const leadConfig = (formData.get('configuration') || '1 BHK / 2 BHK').trim();
+      const leadConfig = (formData.get('configuration') || '1 & 2 BHK Luxury Residences').trim();
       const countryCode = (formData.get('country_code') || '+91').trim();
 
       // Store lead in browser storage
@@ -682,16 +680,19 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('access_key', 'c4517da0-4b38-40bd-b3de-ca3f3905ae1e');
       }
 
-      // Download Sunteck E-Brochure PDF
-      const triggerBrochureDownload = () => {
+      // Trigger automatic PDF brochure download
+      try {
         const link = document.createElement('a');
         link.href = 'sunteck_brochure.pdf';
         link.download = 'Sunteck_Naigaon_E_Brochure.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      };
+      } catch (dlErr) {
+        console.warn('Brochure download warning:', dlErr);
+      }
 
+      // Asynchronous API call to Web3Forms
       try {
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -705,52 +706,11 @@ document.addEventListener('DOMContentLoaded', () => {
       hasSubmittedForm = true;
       clearTimeout(popupTimer);
 
-      // Trigger automatic PDF brochure download
-      triggerBrochureDownload();
-
-      // Render Luxury Thank You Screen on the same page
-      const displayName = leadName ? leadName.split(' ')[0] : 'Valued Guest';
-      
-      form.innerHTML = `
-        <div class="thank-you-view">
-          <div class="thank-you-icon-wrap">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h3 class="thank-you-title serif">Thank You, <span class="lead-name-highlight">${displayName}</span>!</h3>
-          <p class="thank-you-subtitle">
-            Your inquiry for <strong>Sunteck Naigaon</strong> has been received successfully. Your official <strong>E-Brochure &amp; VIP Pricing Sheet</strong> is downloading now.
-          </p>
-          <div class="thank-you-card-box">
-            <div class="thank-you-feature">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <span>Our Principal Estate Advisor will call you within <strong>15 minutes</strong>.</span>
-            </div>
-            <div class="thank-you-feature">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Exclusive festive discount pricing &amp; spot booking offers unlocked.</span>
-            </div>
-          </div>
-          <div class="thank-you-actions">
-            <a href="https://wa.me/919321815517?text=Hi%2C%20I%20have%20submitted%20an%20inquiry%20for%20Sunteck%20Naigaon%20and%20would%20like%20priority%20VIP%20pricing." target="_blank" rel="noopener" class="btn-whatsapp-direct">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.423 2.502 1.144 3.475l-.75 2.742 2.808-.737c.937.512 2.016.806 3.16.807 3.18 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.767-5.762-5.787zm3.385 8.167c-.144.405-.837.774-1.17.824-.312.045-.716.074-2.316-.583-1.921-.79-3.14-2.753-3.237-2.882-.096-.128-.787-1.048-.787-1.999 0-.951.498-1.417.674-1.61.176-.192.385-.241.513-.241.128 0 .256.002.368.007.119.006.279-.045.437.334.16.385.545 1.332.593 1.428.048.096.08.209.016.337-.064.128-.096.208-.192.321-.096.112-.203.25-.29.336-.096.096-.196.2-.085.39.112.192.498.822 1.07 1.332.736.656 1.357.86 1.549.956.192.096.32.144.368.224.048.08.048.464-.096.869z"/></svg>
-              <span>Chat Directly on WhatsApp</span>
-            </a>
-            <button type="button" class="btn-secondary-action reset-form-btn">Submit Another Request</button>
-          </div>
-        </div>
-      `;
-
-      // Allow resetting form if user wants to submit another inquiry
-      const resetBtn = form.querySelector('.reset-form-btn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-          form.innerHTML = originalFormHTML;
-          handleFormSubmit(form, statusEl);
-        });
-      }
+      // Redirect directly to dedicated luxury Thank You Page
+      setTimeout(() => {
+        const redirectUrl = `thank-you.html?name=${encodeURIComponent(leadName)}&config=${encodeURIComponent(leadConfig)}`;
+        window.location.href = redirectUrl;
+      }, 600);
     });
   }
 
@@ -760,5 +720,67 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mainForm) {
     const mainStatus = document.getElementById('sunteck-main-status');
     handleFormSubmit(mainForm, mainStatus);
+  }
+
+  // Active ScrollSpy & Dynamic Section URL Hash Updater
+  const trackedSections = document.querySelectorAll('section[id]');
+  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+  let isScrolling = false;
+
+  // Hash alias map for backward compatibility
+  const hashAliases = {
+    '#sunteck-hero': '#overview',
+    '#sunteck-videos': '#video-tour',
+    '#sunteck-amenities': '#amenities',
+    '#sunteck-tour': '#virtual-tour',
+    '#sunteck-faq': '#faq',
+    '#sunteck-enquiry': '#enquire'
+  };
+
+  // Scroll to hash on page load if present
+  if (window.location.hash) {
+    let targetHash = window.location.hash.toLowerCase();
+    if (hashAliases[targetHash]) {
+      targetHash = hashAliases[targetHash];
+    }
+    const targetElement = document.querySelector(targetHash);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  }
+
+  // IntersectionObserver for dynamic clean URL updates on scroll
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (id && history.replaceState) {
+            // Update browser URL hash without causing a page jump
+            history.replaceState(null, null, '#' + id);
+
+            // Update active state on nav links
+            allNavLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              if (href === '#' + id) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    trackedSections.forEach(section => sectionObserver.observe(section));
   }
 });

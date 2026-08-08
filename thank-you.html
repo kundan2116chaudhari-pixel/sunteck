@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Sunteck One World Naigaon</title>
+  <meta name="description" content="Thank you for your interest in Sunteck One World Naigaon. Your official E-Brochure and VIP pricing details are on their way.">
+  <link rel="canonical" href="https://sunteckworldnaigaon.in/thank-you.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="favicon logo/SUNTECK.webp">
+  <link rel="shortcut icon" type="image/webp" href="favicon logo/SUNTECK.webp">
+  <link rel="apple-touch-icon" href="favicon logo/SUNTECK.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Dedicated Standalone Thank You Page Layout */
+    .thank-you-page-body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #0D0C0A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    .thank-you-header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(213, 129, 42, 0.2);
+      background: rgba(13, 12, 10, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .thank-you-header .header-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .thank-you-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+
+    .thank-you-bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(90vw, 700px);
+      height: min(90vw, 700px);
+      background: radial-gradient(circle, rgba(213, 129, 42, 0.18) 0%, rgba(46, 125, 50, 0.1) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .thank-you-card-standalone {
+      position: relative;
+      z-index: 1;
+      width: min(94vw, 620px);
+      background: #181612;
+      border: 1px solid rgba(213, 129, 42, 0.35);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 50px rgba(213, 129, 42, 0.15);
+      animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .ty-icon-circle {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(213, 129, 42, 0.25), rgba(46, 125, 50, 0.25));
+      border: 2px solid #D5812A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px rgba(213, 129, 42, 0.35);
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(213, 129, 42, 0.3);
+      }
+      50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 45px rgba(213, 129, 42, 0.55);
+      }
+    }
+
+    .ty-icon-circle svg {
+      color: #25D366;
+    }
+
+    .ty-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #D5812A;
+      margin-bottom: 0.5rem;
+    }
+
+    .ty-headline {
+      font-family: var(--font-sunteck-headline);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .ty-headline .ty-name {
+      color: #D5812A;
+    }
+
+    .ty-subtext {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .ty-info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(213, 129, 42, 0.25);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .ty-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0.75rem 0;
+      line-height: 1.45;
+    }
+
+    .ty-info-item svg {
+      color: #25D366;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ty-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 580px) {
+      .ty-actions-grid {
+        grid-template-columns: 1fr;
+      }
+      .thank-you-card-standalone {
+        padding: 2.25rem 1.5rem;
+      }
+      .ty-headline {
+        font-size: 1.75rem;
+      }
+    }
+
+    .btn-ty-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #FFFFFF !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-ty-whatsapp:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-ty-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #D5812A;
+      color: #FFFFFF !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 20px rgba(213, 129, 42, 0.35);
+    }
+
+    .btn-ty-call:hover {
+      background: #B66B1D;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(213, 129, 42, 0.5);
+    }
+
+    /* Auto-Redirect Countdown Bar */
+    .redirect-banner {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .redirect-timer-text {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .redirect-timer-text strong {
+      color: #D5812A;
+      font-size: 1.1rem;
+    }
+
+    .redirect-progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .redirect-progress-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #D5812A, #25D366);
+      transition: width 1s linear;
+    }
+
+    .btn-return-home {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: underline;
+      transition: color var(--transition-fast);
+      margin-top: 0.25rem;
+    }
+
+    .btn-return-home:hover {
+      color: #D5812A;
+    }
+
+    .thank-you-footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.45);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="thank-you-page-body">
+
+  <!-- Header -->
+  <header class="thank-you-header">
+    <a href="index.html" class="header-logo" aria-label="Return to Sunteck Home">
+      <img src="images/sunteck_logo.svg" alt="Sunteck Realty Logo">
+    </a>
+    <a href="index.html" class="btn-secondary-action" style="color: #FFFFFF; border-color: rgba(255,255,255,0.2);">
+      &larr; Back to Website
+    </a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="thank-you-main">
+    <div class="thank-you-bg-glow"></div>
+
+    <div class="thank-you-card-standalone">
+      <div class="ty-icon-circle">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+
+      <span class="ty-badge">INQUIRY CONFIRMED &bull; BROCHURE SENT</span>
+      
+      <h1 class="ty-headline serif">
+        Thank You, <span class="ty-name" id="user-display-name">Valued Guest</span>!
+      </h1>
+
+      <p class="ty-subtext">
+        Your inquiry for <strong style="color:#FFFFFF;">Sunteck One World Naigaon</strong> has been received successfully. Your official <strong>E-Brochure &amp; VIP Price Sheet</strong> is downloading to your device.
+      </p>
+
+      <div class="ty-info-box">
+        <div class="ty-info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Our Principal Estate Advisor will call you within <strong>15 minutes</strong> with current inventory &amp; floor plans.</span>
+        </div>
+        <div class="ty-info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Selected Preference: <strong id="user-config-display" style="color:#D5812A;">1 &amp; 2 BHK Luxury Residences</strong>.</span>
+        </div>
+        <div class="ty-info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span><a href="sunteck_brochure.pdf" download="Sunteck_Naigaon_E_Brochure.pdf" style="color:#D5812A; text-decoration:underline;">Click here</a> if brochure download didn't start automatically.</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="ty-actions-grid">
+        <a href="https://wa.me/919321815517?text=Hi%2C%20I%20just%20submitted%20an%20inquiry%20for%20Sunteck%20Naigaon%20and%20would%20like%20priority%20VIP%20pricing." target="_blank" rel="noopener" class="btn-ty-whatsapp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.423 2.502 1.144 3.475l-.75 2.742 2.808-.737c.937.512 2.016.806 3.16.807 3.18 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.767-5.762-5.787zm3.385 8.167c-.144.405-.837.774-1.17.824-.312.045-.716.074-2.316-.583-1.921-.79-3.14-2.753-3.237-2.882-.096-.128-.787-1.048-.787-1.999 0-.951.498-1.417.674-1.61.176-.192.385-.241.513-.241.128 0 .256.002.368.007.119.006.279-.045.437.334.16.385.545 1.332.593 1.428.048.096.08.209.016.337-.064.128-.096.208-.192.321-.096.112-.203.25-.29.336-.096.096-.196.2-.085.39.112.192.498.822 1.07 1.332.736.656 1.357.86 1.549.956.192.096.32.144.368.224.048.08.048.464-.096.869z"/></svg>
+          <span>Chat on WhatsApp</span>
+        </a>
+        <a href="tel:+919321815517" class="btn-ty-call">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Call Direct Desk</span>
+        </a>
+      </div>
+
+      <!-- Auto Redirect Countdown Section -->
+      <div class="redirect-banner">
+        <div class="redirect-timer-text">
+          Redirecting back to main website in <strong id="countdown-number">5</strong> seconds...
+        </div>
+        <div class="redirect-progress-bar-wrap">
+          <div class="redirect-progress-fill" id="progress-fill"></div>
+        </div>
+        <a href="index.html" class="btn-return-home">Return to Home Immediately &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="thank-you-footer">
+    <p>MahaRERA Registration: P99000032834, P99000033099, P99000033218, P99000033157. Authorized Channel Partner: Locate Homes.</p>
+    <p style="margin-top: 0.35rem;">&copy; 2026 Sunteck Realty &bull; Locate Homes. All rights reserved.</p>
+  </footer>
+
+  <!-- Dynamic Parameter & Auto Redirect Countdown Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Read URL Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawName = urlParams.get('name');
+      const rawConfig = urlParams.get('config');
+
+      if (rawName && rawName.trim()) {
+        const firstName = rawName.trim().split(' ')[0];
+        document.getElementById('user-display-name').textContent = firstName;
+      }
+
+      if (rawConfig && rawConfig.trim()) {
+        document.getElementById('user-config-display').textContent = rawConfig.trim();
+      }
+
+      // 2. Trigger instant PDF brochure download
+      try {
+        const link = document.createElement('a');
+        link.href = 'sunteck_brochure.pdf';
+        link.download = 'Sunteck_Naigaon_E_Brochure.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (e) {
+        console.warn('Auto download error:', e);
+      }
+
+      // 3. Countdown Timer (5 Seconds) & Auto Redirect to main website
+      let timeLeft = 5;
+      const countdownEl = document.getElementById('countdown-number');
+      const progressFill = document.getElementById('progress-fill');
+
+      const countdownInterval = setInterval(() => {
+        timeLeft -= 1;
+        if (countdownEl) countdownEl.textContent = timeLeft;
+        if (progressFill) progressFill.style.width = ((timeLeft / 5) * 100) + '%';
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          window.location.href = 'index.html';
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
