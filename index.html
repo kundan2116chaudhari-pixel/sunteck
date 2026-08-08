@@ -1016,19 +1016,22 @@
 
         <!-- Right Column: Inline Lead Capture Form with Country-Code Dropdown -->
         <div class="contact-form-col fade-up">
-          <form id="sunteck-lead-form" class="luxury-form" onsubmit="event.preventDefault(); alert('Thank you for your interest in Sunteck Naigaon. Our principal estate advisor will call you shortly.');">
+          <form id="sunteck-lead-form" class="luxury-form">
+            <input type="hidden" name="access_key" value="c4517da0-4b38-40bd-b3de-ca3f3905ae1e">
+            <input type="hidden" name="subject" value="New Direct Lead — Sunteck Naigaon Inquiry">
+            <input type="hidden" name="from_name" value="Sunteck Realty Official Site">
             <h3 class="form-title serif">Request Festive Call Back</h3>
             
             <div class="form-group">
               <label for="sunteck-name" class="form-label">Full Name</label>
-              <input type="text" id="sunteck-name" class="form-input" placeholder="e.g. Ramesh Patil" required>
+              <input type="text" id="sunteck-name" name="name" class="form-input" placeholder="e.g. Ramesh Patil" required>
             </div>
 
             <!-- Country-Code Dropdown + Number Field Requirement -->
             <div class="form-group">
               <label for="sunteck-phone" class="form-label">Phone Number</label>
               <div class="phone-input-wrap">
-                <select id="country-code" class="country-code-select" aria-label="Country ISD Code">
+                <select id="country-code" name="country_code" class="country-code-select" aria-label="Country ISD Code">
                   <option value="+91" selected>🇮🇳 +91 (India)</option>
                   <option value="+1">🇺🇸 +1 (USA / Canada)</option>
                   <option value="+44">🇬🇧 +44 (UK)</option>
@@ -1038,29 +1041,29 @@
                   <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
                   <option value="+974">🇶🇦 +974 (Qatar)</option>
                 </select>
-                <input type="tel" id="sunteck-phone" class="form-input" placeholder="93218 15517" required>
+                <input type="tel" id="sunteck-phone" name="phone" class="form-input" placeholder="93218 15517" required>
               </div>
             </div>
 
             <div class="form-group">
               <label for="sunteck-email" class="form-label">Email Address</label>
-              <input type="email" id="sunteck-email" class="form-input" placeholder="alexander@example.com" required>
+              <input type="email" id="sunteck-email" name="email" class="form-input" placeholder="alexander@example.com" required>
             </div>
 
             <div class="form-group">
               <label for="sunteck-unit" class="form-label">Preferred Unit Configuration</label>
-              <select id="sunteck-unit" class="form-select" required>
+              <select id="sunteck-unit" name="configuration" class="form-select" required>
                 <option value="" disabled selected>Select configuration</option>
-                <option value="1bhk">1 BHK Platinum (407 sq.ft — ₹37L+)</option>
-                <option value="2bhk">2 BHK Residence (550 sq.ft — ₹49L+)</option>
-                <option value="both">Interested in Both Configurations</option>
+                <option value="1 BHK Platinum (407 sq.ft — ₹37L+)">1 BHK Platinum (407 sq.ft — ₹37L+)</option>
+                <option value="2 BHK Residence (550 sq.ft — ₹49L+)">2 BHK Residence (550 sq.ft — ₹49L+)</option>
+                <option value="Interested in Both Configurations">Interested in Both Configurations</option>
               </select>
             </div>
 
             <div class="form-group consent-check-group">
               <label class="checkbox-label">
                 <input type="checkbox" required checked>
-                <span>I authorize Sunteck Realty & Locate Homes to contact me via Call, SMS, or WhatsApp.</span>
+                <span>I authorize Sunteck Realty &amp; Locate Homes to contact me via Call, SMS, or WhatsApp.</span>
               </label>
             </div>
 
@@ -1068,6 +1071,7 @@
               <span>Submit Inquiry</span>
               <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
+            <div id="sunteck-main-status" class="form-status-msg"></div>
           </form>
         </div>
       </div>
