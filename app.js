@@ -734,7 +734,8 @@ document.addEventListener('DOMContentLoaded', () => {
     '#sunteck-amenities': '#amenities',
     '#sunteck-tour': '#virtual-tour',
     '#sunteck-faq': '#faq',
-    '#sunteck-enquiry': '#enquire'
+    '#sunteck-enquiry': '#enquire',
+    '#privacy': '#privacy-policy'
   };
 
   // Scroll to hash on page load if present
